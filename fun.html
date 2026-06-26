@@ -1,0 +1,72 @@
+<!-- # ЭТОТ ФАЙЛ — САЙТ-ГЕНЕРАТОР МЕМОВ. Сохрани как meme.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор фраз</title>
+    
+    <!-- # СТИЛИ: делаем фон светлым, а текст — крупным и приятным -->
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* # шрифт как в мемах */
+            text-align: center;
+            background-color: #fffdf0; /* # кремовый цвет фона */
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #ff5733; /* # оранжевый заголовок */
+        }
+
+        #phrase {
+            font-size: 2em; /* # очень крупный текст фразы */
+            margin: 30px 0;
+            color: #333;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #33ff99; /* # ярко-зелёная кнопка */
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            background-color: #00cc7a; /* # цвет при наведении */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- # ЗАГОЛОВОК: сразу понятно, что тут происходит -->
+    <h1>Нажми и получи фразу!</h1>
+
+    <!-- # СЮДА СКРИПТ БУДЕТ ПИСАТЬ ФРАЗУ -->
+    <div id="phrase">Жми на кнопку!</div>
+
+    <!-- # КНОПКА: запускает функцию generatePhrase() -->
+    <button onclick="generatePhrase()">���енерировать</button>
+
+    <!-- # СКРИПТ: логика генерации фразы -->
+    <script>
+        // # МАССИВ ПЕРВЫХ СЛОВ: список вариантов для начала фразы
+        var starts = ["Кот", "Ты", "Монетка", "Шарик", "Игрок", "Робот"];
+
+        // # МАССИВ ВТОРЫХ СЛОВ: список вариантов для конца фразы
+        var ends = ["в космосе", "уже победил", "исчезла", "улетел", "нашёл секрет", "хочет играть"];
+
+        function generatePhrase() {
+            // # Math.random() даёт случайное число, а Math.floor округляет его
+            // Так мы получаем случайный номер слова из списка
+            var randomStart = starts[Math.floor(Math.random() * starts.length)];
+            var randomEnd = ends[Math.floor(Math.random() * ends.length)];
+
+            // # document.getElementById('phrase') находит строчку на сайте
+            // .innerText меняет текст внутри неё на новый
+            document.getElementById('phrase').innerText = randomStart + " " + randomEnd;
+        }
+    </script>
+</body>
+</html>
